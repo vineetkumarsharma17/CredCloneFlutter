@@ -7,7 +7,6 @@ import 'package:cred/ui/pages/club/ClubPageBinding.dart';
 import 'package:cred/ui/pages/dashboard/DashboardBinding.dart';
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
-import 'package:cred/core/RadialGradientMask.dart';
 import 'package:cred/ui/pages/dashboard/DashboardController.dart';
 import 'package:cred/ui/pages/home/HomePage.dart';
 import 'package:cred/ui/pages/home/HomePageBinding.dart';
