@@ -9,23 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MoneyPage extends StatelessWidget {
-  const MoneyPage({Key key}) : super(key: key);
+  const MoneyPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final MoneyTabsController moneyTabsController = Get.put(MoneyTabsController());
+    final MoneyTabsController moneyTabsController =
+        Get.put(MoneyTabsController());
 
     final _unselectedTabTextStyle = TextStyle(
-        fontSize: 16,
-        color: Colors.grey,
-        fontWeight: FontWeight.w600
-    );
+        fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w600);
 
     final _selectedTabTextStyle = TextStyle(
-        fontSize: 16,
-        color: Colors.white,
-        fontWeight: FontWeight.w600
-    );
+        fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600);
 
     return Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),

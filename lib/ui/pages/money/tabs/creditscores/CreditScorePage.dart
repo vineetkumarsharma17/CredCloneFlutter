@@ -2,7 +2,7 @@ import 'package:cred/ui/widgets/CreditScoreWidget.dart';
 import 'package:flutter/material.dart';
 
 class CreditScorePage extends StatelessWidget {
-  const CreditScorePage({Key key}) : super(key: key);
+  const CreditScorePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +11,27 @@ class CreditScorePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 36,),
-            Text("all about your credit score", style: _headingTextStyle, textAlign: TextAlign.center,),
-            SizedBox(height: 16,),
+            SizedBox(
+              height: 36,
+            ),
+            Text(
+              "all about your credit score",
+              style: _headingTextStyle,
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 16,
+            ),
             SizedBox(
               width: 240,
-              child: Text("get insights and check your credit standing", style: _descTextStyle, textAlign: TextAlign.center),
+              child: Text("get insights and check your credit standing",
+                  style: _descTextStyle, textAlign: TextAlign.center),
             ),
-            SizedBox(height: 16,),
-            CreditScoreLayout(csProviderLogoPath: "assets/images/experian_cs.png"),
+            SizedBox(
+              height: 16,
+            ),
+            CreditScoreLayout(
+                csProviderLogoPath: "assets/images/experian_cs.png"),
             CreditScoreLayout(csProviderLogoPath: "assets/images/crif_cs.png"),
           ],
         ),
@@ -27,6 +39,8 @@ class CreditScorePage extends StatelessWidget {
     );
   }
 
-  final _headingTextStyle = const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white70);
-  final _descTextStyle = const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.white54);
+  final _headingTextStyle = const TextStyle(
+      fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white70);
+  final _descTextStyle = const TextStyle(
+      fontSize: 16, fontWeight: FontWeight.normal, color: Colors.white54);
 }

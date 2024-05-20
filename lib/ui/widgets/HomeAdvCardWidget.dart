@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HomeAdvCardModel extends StatefulWidget {
-  const HomeAdvCardModel({Key key, @required this.homeAdvModel, @required this.callback}) : super(key: key);
+  const HomeAdvCardModel(
+      {Key? key, required this.homeAdvModel, required this.callback})
+      : super(key: key);
   final HomeAdvModel homeAdvModel;
   final Function callback;
 
@@ -22,9 +24,10 @@ class _HomeAdvCardModelState extends State<HomeAdvCardModel> {
         intensity: 0.5,
         lightSource: LightSource.topLeft,
         color: HexColor.fromHex(LightSkyblue),
-        border: NeumorphicBorder(color: HexColor.fromHex(ExtraDarkBackground), width: 4),
-        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(14)))
-    );
+        border: NeumorphicBorder(
+            color: HexColor.fromHex(ExtraDarkBackground), width: 4),
+        boxShape: NeumorphicBoxShape.roundRect(
+            BorderRadius.all(Radius.circular(14))));
 
     final _promoImage = Expanded(
       child: Container(
@@ -38,7 +41,9 @@ class _HomeAdvCardModelState extends State<HomeAdvCardModel> {
     final _promoHeading = Text(
       "hurry up, offer expiring soon!",
       style: TextStyle(
-        fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
       ),
       textAlign: TextAlign.center,
     );
@@ -52,15 +57,17 @@ class _HomeAdvCardModelState extends State<HomeAdvCardModel> {
     final _promoDesc = Text(
       "limited stock available",
       style: TextStyle(
-        fontSize: 17, fontWeight: FontWeight.normal, color: Colors.black,
+        fontSize: 17,
+        fontWeight: FontWeight.normal,
+        color: Colors.black,
       ),
       textAlign: TextAlign.center,
     );
 
     var _isClaimed = widget.homeAdvModel.isClaimed;
     final _onIsClaimClicked = () {
-      setState((){
-      _isClaimed = true;
+      setState(() {
+        _isClaimed = true;
       });
       widget.callback(widget.homeAdvModel.index);
     };
@@ -75,7 +82,8 @@ class _HomeAdvCardModelState extends State<HomeAdvCardModel> {
             _promoImage,
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 32),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -83,13 +91,17 @@ class _HomeAdvCardModelState extends State<HomeAdvCardModel> {
                     _promoDesc,
                     MaterialButton(
                       padding: const EdgeInsets.symmetric(
-                        vertical: 14.0, horizontal: 36.0,
+                        vertical: 14.0,
+                        horizontal: 36.0,
                       ),
                       color: _isClaimed ? Colors.grey : Colors.black,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50.0)
-                      ),
-                      onPressed: _isClaimed ? null : () {_onIsClaimClicked();},
+                          borderRadius: BorderRadius.circular(50.0)),
+                      onPressed: _isClaimed
+                          ? null
+                          : () {
+                              _onIsClaimClicked();
+                            },
                       child: Text(
                         _isClaimed ? "Claimed" : "Claim now",
                         style: _claimButtonStyle,

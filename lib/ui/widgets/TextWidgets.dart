@@ -3,7 +3,10 @@ import 'package:flutter/cupertino.dart';
 
 class BoldText extends StatefulWidget {
   const BoldText(String txt, double size, String clr,
-      {Key key, this.text, this.fontSize, this.colorHexCode})
+      {Key? key,
+      required this.text,
+      required this.fontSize,
+      required this.colorHexCode})
       : super(key: key);
   final String text;
   final double fontSize;

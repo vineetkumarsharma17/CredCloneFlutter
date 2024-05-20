@@ -7,7 +7,7 @@ class MyCardsController extends GetxController {
   var isLoading = false.obs;
   var cardsList = <CreditCardModel>[].obs;
 
-  CardsRepo _repo;
+  late CardsRepo _repo;
   MyCardsController() {
     _repo = Get.find<CardsRepoImpl>();
     loadMyCards();

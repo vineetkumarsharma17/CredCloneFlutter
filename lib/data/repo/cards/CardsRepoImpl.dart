@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'CardsRepo.dart';
 
 class CardsRepoImpl implements CardsRepo {
-  FakeApis api;
+  late FakeApis api;
 
   CardsRepoImpl() {
     api = Get.find<FakeApisImpl>();
@@ -16,5 +16,4 @@ class CardsRepoImpl implements CardsRepo {
   Future<List<CreditCardModel>> fetchMyCards() async {
     return await api.getCreditCards();
   }
-
 }

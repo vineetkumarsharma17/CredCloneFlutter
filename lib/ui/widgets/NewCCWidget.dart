@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class NewCCLayout extends StatefulWidget {
-  const NewCCLayout({Key key, @required this.ccModel, @required this.callback}) : super(key: key);
+  const NewCCLayout({Key? key, required this.ccModel, @required this.callback})
+      : super(key: key);
   final CreditCardModel ccModel;
-  final Function callback;
+  final Function? callback;
 
   @override
   State<NewCCLayout> createState() => _NewCCLayoutState();
@@ -17,26 +18,30 @@ class _NewCCLayoutState extends State<NewCCLayout> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+        padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
         child: Container(
           child: Neumorphic(
             style: NeumorphicStyle(
-              depth: -4,
-              intensity: 0.6,
-              lightSource: LightSource.topLeft,
-              color: HexColor.fromHex(DarkBackground),
-              border: NeumorphicBorder(color: HexColor.fromHex(DarkBackground), width: 4),
-              boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(12)))
+                depth: -4,
+                intensity: 0.6,
+                lightSource: LightSource.topLeft,
+                color: HexColor.fromHex(DarkBackground),
+                border: NeumorphicBorder(
+                    color: HexColor.fromHex(DarkBackground), width: 4),
+                boxShape: NeumorphicBoxShape.roundRect(
+                    BorderRadius.all(Radius.circular(12)))),
+            child: NewCCWidget(
+              ccModel: widget.ccModel,
+              callback: widget.callback ?? () {},
             ),
-            child: NewCCWidget(ccModel: widget.ccModel, callback: widget.callback,),
           ),
-        )
-    );
+        ));
   }
 }
 
 class NewCCWidget extends StatefulWidget {
-  const NewCCWidget({Key key, @required this.ccModel, @required this.callback}) : super(key: key);
+  const NewCCWidget({Key? key, required this.ccModel, required this.callback})
+      : super(key: key);
   final CreditCardModel ccModel;
   final Function callback;
 
@@ -49,7 +54,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
   Widget build(BuildContext context) {
     var _isPaid = widget.ccModel.isPaid;
     final _onIsPaidClicked = () {
-      setState((){
+      setState(() {
         _isPaid = true;
       });
       //widget.callback(widget.homeAdvModel.index);
@@ -84,7 +89,11 @@ class _NewCCWidgetState extends State<NewCCWidget> {
           ),
         ),
         SizedBox(
-          child: Image.asset(widget.ccModel.bankPath, width: 100, alignment: Alignment.centerRight,),
+          child: Image.asset(
+            widget.ccModel.bankPath,
+            width: 100,
+            alignment: Alignment.centerRight,
+          ),
           height: 30,
           width: 120,
         ),
@@ -109,10 +118,11 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     color: Colors.white,
                     fontFamily: 'FiraMono',
                     fontWeight: FontWeight.normal,
-                    letterSpacing: 1.5
-                ),
+                    letterSpacing: 1.5),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 widget.ccModel.cardHolder,
                 style: TextStyle(
@@ -120,8 +130,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     color: Colors.white,
                     fontFamily: 'FiraMono',
                     fontWeight: FontWeight.normal,
-                    letterSpacing: 0.5
-                ),
+                    letterSpacing: 0.5),
               ),
             ],
           ),
@@ -154,7 +163,9 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     widget.ccModel.due,
                     style: TextStyle(
@@ -172,12 +183,13 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     color: HexColor.fromHex(CreamyYellow),
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.2,
-                    wordSpacing: 1.5
-                ),
+                    wordSpacing: 1.5),
               ),
             ],
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           Text(
             "NO HIDDEN CHARGES",
             style: TextStyle(
@@ -185,18 +197,22 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                 color: HexColor.fromHex(Green),
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1,
-                wordSpacing: 1.5
-            ),
+                wordSpacing: 1.5),
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           _divider,
-          SizedBox(height: 18,),
+          SizedBox(
+            height: 18,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: NeumorphicButton(
-                  padding: const EdgeInsets.symmetric(vertical: 17.0, horizontal: 0.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 17.0, horizontal: 0.0),
                   margin: const EdgeInsets.only(top: 4, bottom: 4, right: 12),
                   style: NeumorphicStyle(
                       color: HexColor.fromHex(DarkBackground),
@@ -205,8 +221,8 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                       depth: 13,
                       intensity: 0.45,
                       lightSource: LightSource.topLeft,
-                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40))
-                  ),
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(40))),
                   onPressed: () {},
                   child: Center(
                     child: Text(
@@ -217,15 +233,15 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Lato',
                           letterSpacing: 1,
-                          wordSpacing: 1.5
-                      ),
+                          wordSpacing: 1.5),
                     ),
                   ),
                 ),
               ),
               Expanded(
                 child: NeumorphicButton(
-                  padding: const EdgeInsets.symmetric(vertical: 19.0, horizontal: 0.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 19.0, horizontal: 0.0),
                   margin: const EdgeInsets.only(top: 4, bottom: 4, left: 12),
                   style: NeumorphicStyle(
                       color: HexColor.fromHex(PayNowButtonBlue),
@@ -234,10 +250,16 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                       intensity: 0.45,
                       surfaceIntensity: 0.2,
                       lightSource: LightSource.topLeft,
-                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
-                      border: NeumorphicBorder(color: HexColor.fromHex(ExtraDarkBackground), width: 4.5)
-                  ),
-                  onPressed: _isPaid ? null : () {_onIsPaidClicked();},
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(40)),
+                      border: NeumorphicBorder(
+                          color: HexColor.fromHex(ExtraDarkBackground),
+                          width: 4.5)),
+                  onPressed: _isPaid
+                      ? null
+                      : () {
+                          _onIsPaidClicked();
+                        },
                   child: Center(
                     child: Text(
                       _isPaid ? "Paid" : "Pay Now",
@@ -247,8 +269,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Lato',
                           letterSpacing: 1,
-                          wordSpacing: 1.5
-                      ),
+                          wordSpacing: 1.5),
                     ),
                   ),
                 ),
@@ -266,21 +287,14 @@ class _NewCCWidgetState extends State<NewCCWidget> {
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(12)
-            ),
-            image: DecorationImage(
-              image: Image.asset(widget.ccModel.bgPath).image,
-              fit: BoxFit.fill
-            ),
-            color: HexColor.fromHex(CCDarkBackground)
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              image: DecorationImage(
+                  image: Image.asset(widget.ccModel.bgPath).image,
+                  fit: BoxFit.fill),
+              color: HexColor.fromHex(CCDarkBackground)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _cardBranding,
-              _cardFooter
-            ],
+            children: [_cardBranding, _cardFooter],
           ),
         ),
         _cardDebtDetailsAndActions

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class CreditCardLayout extends StatelessWidget {
-  const CreditCardLayout({Key key}) : super(key: key);
+  const CreditCardLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class CreditCardLayout extends StatelessWidget {
 }
 
 class CreditCardWidget extends StatefulWidget {
-  const CreditCardWidget({Key key}) : super(key: key);
+  const CreditCardWidget({Key? key}) : super(key: key);
 
   @override
   _CreditCardWidgetState createState() => _CreditCardWidgetState();
@@ -123,20 +123,19 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                         ),
                         MaterialButton(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 10.0, horizontal: 20.0,
+                            vertical: 10.0,
+                            horizontal: 20.0,
                           ),
                           color: HexColor.fromHex(ExtraDarkBackground),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50.0)
-                          ),
-                          onPressed: (){},
+                              borderRadius: BorderRadius.circular(50.0)),
+                          onPressed: () {},
                           child: Text(
                             "Pay now",
                             style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold
-                            ),
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         )
                       ],

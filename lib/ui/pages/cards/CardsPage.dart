@@ -10,23 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CardsPage extends StatelessWidget {
-  const CardsPage({Key key}) : super(key: key);
+  const CardsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final CardsTabsController cardsTabController = Get.put(CardsTabsController());
+    final CardsTabsController cardsTabController =
+        Get.put(CardsTabsController());
 
     final _unselectedTabTextStyle = TextStyle(
-        fontSize: 16,
-        color: Colors.grey,
-        fontWeight: FontWeight.w600
-    );
+        fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w600);
 
     final _selectedTabTextStyle = TextStyle(
-        fontSize: 16,
-        color: Colors.white,
-        fontWeight: FontWeight.w600
-    );
+        fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600);
 
     return Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),

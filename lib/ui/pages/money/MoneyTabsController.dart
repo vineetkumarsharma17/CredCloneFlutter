@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MoneyTabsController  extends GetxController with GetSingleTickerProviderStateMixin {
-  TabController tabController;
+class MoneyTabsController extends GetxController
+    with GetSingleTickerProviderStateMixin {
+  late TabController tabController;
 
-  List<Tab> moneyTabsList = <Tab> [
-    Tab(text: "credit score", ),
-    Tab(text: "accounts", ),
-    Tab(text: "cash", ),
-    Tab(text: "mutual funds", ),
+  List<Tab> moneyTabsList = <Tab>[
+    Tab(
+      text: "credit score",
+    ),
+    Tab(
+      text: "accounts",
+    ),
+    Tab(
+      text: "cash",
+    ),
+    Tab(
+      text: "mutual funds",
+    ),
   ];
 
   @override

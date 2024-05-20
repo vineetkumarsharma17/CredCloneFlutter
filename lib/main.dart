@@ -39,23 +39,28 @@ class MyApp extends StatelessWidget {
           name: RouteDashboard,
           page: () => DashboardPage(),
           binding: DashBoardBinding(),
-        ),GetPage(
+        ),
+        GetPage(
           name: RouteHome,
           page: () => HomePage(),
           binding: HomePageBinding(),
-        ),GetPage(
+        ),
+        GetPage(
           name: RouteCards,
           page: () => CardsPage(),
           binding: CardsPageBinding(),
-        ),GetPage(
+        ),
+        GetPage(
           name: RouteCentralTab,
           page: () => CentralPage(),
           binding: CentralPageBinding(),
-        ),GetPage(
+        ),
+        GetPage(
           name: RouteMoney,
           page: () => MoneyPage(),
           binding: MoneyPageBinding(),
-        ),GetPage(
+        ),
+        GetPage(
           name: RouteClub,
           page: () => ClubPage(),
           binding: ClubPageBinding(),
@@ -68,7 +73,7 @@ class MyApp extends StatelessWidget {
 }
 
 class DashboardPage extends StatelessWidget {
-  const DashboardPage({Key key}) : super(key: key);
+  const DashboardPage({Key? key}) : super(key: key);
 
   final double _bottomBarHeight = 80;
 
@@ -88,14 +93,16 @@ class DashboardPage extends StatelessWidget {
       ClubPage()
     ];
 
-    void _showBottomSheet() { showModalBottomSheet<dynamic>(
-        context: context,
-        isScrollControlled: true,
-        backgroundColor: HexColor.fromHex(BottomSheetBackground),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-        builder: (BuildContext context) {
-        return CentralPage();
-        });
+    void _showBottomSheet() {
+      showModalBottomSheet<dynamic>(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: HexColor.fromHex(BottomSheetBackground),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+          builder: (BuildContext context) {
+            return CentralPage();
+          });
     }
 
     Widget _getBottomBarRow() {
@@ -104,44 +111,65 @@ class DashboardPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IconButton(icon: Image.asset("assets/images/icon_options.png",), onPressed: () { _onBottomTabPressed(0); }),
-          IconButton(icon: Image.asset("assets/images/icon_cc.png"), onPressed: () { _onBottomTabPressed(1); }),
-          IconButton(icon: Image.asset("assets/images/icon_cred_golden.png"), onPressed: () { _showBottomSheet(); }),
-          IconButton(icon: Image.asset("assets/images/bank_colored.png"), onPressed: () { _onBottomTabPressed(3); }),
-          IconButton(icon: Image.asset("assets/images/icon_club.png"), onPressed: () { _onBottomTabPressed(4); }),
+          IconButton(
+              icon: Image.asset(
+                "assets/images/icon_options.png",
+              ),
+              onPressed: () {
+                _onBottomTabPressed(0);
+              }),
+          IconButton(
+              icon: Image.asset("assets/images/icon_cc.png"),
+              onPressed: () {
+                _onBottomTabPressed(1);
+              }),
+          IconButton(
+              icon: Image.asset("assets/images/icon_cred_golden.png"),
+              onPressed: () {
+                _showBottomSheet();
+              }),
+          IconButton(
+              icon: Image.asset("assets/images/bank_colored.png"),
+              onPressed: () {
+                _onBottomTabPressed(3);
+              }),
+          IconButton(
+              icon: Image.asset("assets/images/icon_club.png"),
+              onPressed: () {
+                _onBottomTabPressed(4);
+              }),
         ],
       );
     }
 
     return Obx(() => Scaffold(
-      backgroundColor: HexColor.fromHex(DarkBackground),
-      body: IndexedStack(
-        index: dashboardController.currentTabIndex.value,
-        children: _bottomTabScreensList,
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: HexColor.fromHex(DarkBackground),
-        child: ClipPath(
-          clipper: BottomBarClipper(),
-          child: Stack(
-            children: [
-              CustomPaint(
-                painter: BottomBarBorderPainter(),
-                child: Container(
-                  height: _bottomBarHeight,
-                ),
-              ),
-              Positioned.fill(
-                top: 28,
-                child: Container(
-                  padding: const EdgeInsets.only(left: 16, right: 16),
-                  child: _getBottomBarRow()
-                ),
-              ),
-            ],
+          backgroundColor: HexColor.fromHex(DarkBackground),
+          body: IndexedStack(
+            index: dashboardController.currentTabIndex.value,
+            children: _bottomTabScreensList,
           ),
-        ),
-      ),
-    ));
+          bottomNavigationBar: BottomAppBar(
+            color: HexColor.fromHex(DarkBackground),
+            child: ClipPath(
+              clipper: BottomBarClipper(),
+              child: Stack(
+                children: [
+                  CustomPaint(
+                    painter: BottomBarBorderPainter(),
+                    child: Container(
+                      height: _bottomBarHeight,
+                    ),
+                  ),
+                  Positioned.fill(
+                    top: 28,
+                    child: Container(
+                        padding: const EdgeInsets.only(left: 16, right: 16),
+                        child: _getBottomBarRow()),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }

@@ -10,7 +10,7 @@ class FakeApisImpl implements FakeApis {
   }
 
   @override
-  Future<void> claimCoupon(int index) {
+  Future<void> claimCoupon(int index) async {
     homeAdvList[index].isClaimed = true;
   }
 
@@ -18,5 +18,4 @@ class FakeApisImpl implements FakeApis {
   Future<List<CreditCardModel>> getCreditCards() {
     return Future.delayed(const Duration(seconds: 3), () => cards);
   }
-
 }

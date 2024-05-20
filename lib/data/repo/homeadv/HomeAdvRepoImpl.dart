@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'HomeAdvRepo.dart';
 
 class HomeAdvRepoImpl implements HomeAdvRepo {
-  FakeApis api;
+  late FakeApis api;
 
   HomeAdvRepoImpl() {
     api = Get.put(FakeApisImpl());

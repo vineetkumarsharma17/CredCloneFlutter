@@ -11,7 +11,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,7 @@ class HomePage extends StatelessWidget {
     final controller = Get.put(HomePageController());
 
     final _appBarTextStyle = TextStyle(
-        color: HexColor.fromHex(TextGray),
-        fontWeight: FontWeight.bold
-    );
+        color: HexColor.fromHex(TextGray), fontWeight: FontWeight.bold);
 
     final _avatarStyle = NeumorphicStyle(
         shape: NeumorphicShape.concave,
@@ -31,18 +29,17 @@ class HomePage extends StatelessWidget {
         lightSource: LightSource.topLeft,
         shadowDarkColor: HexColor.fromHex(DarkBackground),
         shadowLightColor: HexColor.fromHex(DarkBackground),
-        border: NeumorphicBorder(color: Colors.black87, width: 6.0)
-    );
+        border: NeumorphicBorder(color: Colors.black87, width: 6.0));
 
     final _notificationStyle = NeumorphicStyle(
-        shape: NeumorphicShape.convex,
-        boxShape: NeumorphicBoxShape.circle(),
-        depth: 8,
-        intensity: 2,
-        surfaceIntensity: 0.9,
-        shadowLightColor: HexColor.fromHex(ShadowGray),
-        color: HexColor.fromHex(DarkBackground),
-        lightSource: LightSource.topLeft,
+      shape: NeumorphicShape.convex,
+      boxShape: NeumorphicBoxShape.circle(),
+      depth: 8,
+      intensity: 2,
+      surfaceIntensity: 0.9,
+      shadowLightColor: HexColor.fromHex(ShadowGray),
+      color: HexColor.fromHex(DarkBackground),
+      lightSource: LightSource.topLeft,
     );
 
     final _storiesButton = Container(
@@ -54,8 +51,10 @@ class HomePage extends StatelessWidget {
             child: Neumorphic(
                 style: _avatarStyle,
                 margin: EdgeInsets.all(5.5),
-                child: Image(image: AssetImage("assets/images/icon_doodle_left.png"), fit: BoxFit.fill,)
-            ),
+                child: Image(
+                  image: AssetImage("assets/images/icon_doodle_left.png"),
+                  fit: BoxFit.fill,
+                )),
           ),
           Text(
             "stories",
@@ -74,8 +73,10 @@ class HomePage extends StatelessWidget {
             child: Neumorphic(
                 style: _avatarStyle,
                 margin: EdgeInsets.all(5.5),
-                child: Image(image: AssetImage("assets/images/icon_doodle_right.png"), fit: BoxFit.fill,)
-            ),
+                child: Image(
+                  image: AssetImage("assets/images/icon_doodle_right.png"),
+                  fit: BoxFit.fill,
+                )),
           ),
           Text(
             "profile",
@@ -91,12 +92,13 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 55, height: 55,
+            width: 55,
+            height: 55,
             child: Neumorphic(
-                style: _notificationStyle,
-                margin: EdgeInsets.all(4),
-                child: Image.asset("assets/images/icon_alarm.png"),
-                padding: const EdgeInsets.all(6),
+              style: _notificationStyle,
+              margin: EdgeInsets.all(4),
+              child: Image.asset("assets/images/icon_alarm.png"),
+              padding: const EdgeInsets.all(6),
             ),
           ),
           Text(
@@ -113,12 +115,13 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 55, height: 55,
+            width: 55,
+            height: 55,
             child: Neumorphic(
-                style: _notificationStyle,
-                margin: EdgeInsets.all(4),
-                child: Image.asset("assets/images/icon_club.png"),
-                padding: const EdgeInsets.all(8),
+              style: _notificationStyle,
+              margin: EdgeInsets.all(4),
+              child: Image.asset("assets/images/icon_club.png"),
+              padding: const EdgeInsets.all(8),
             ),
           ),
           Text(
@@ -132,9 +135,15 @@ class HomePage extends StatelessWidget {
     final _homeAppBar = AppBar(
       toolbarHeight: _toolbarHeight,
       bottom: PreferredSize(
-        preferredSize: Size(double.infinity, 0.1,),
-        child: Divider(thickness: 1, height: 0.1, color: HexColor.fromHex(ShadowGray),)
-      ),
+          preferredSize: Size(
+            double.infinity,
+            0.1,
+          ),
+          child: Divider(
+            thickness: 1,
+            height: 0.1,
+            color: HexColor.fromHex(ShadowGray),
+          )),
       shadowColor: HexColor.fromHex(ExtraDarkBackground),
       leadingWidth: 80.0,
       elevation: 20,
@@ -143,61 +152,76 @@ class HomePage extends StatelessWidget {
         Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _storiesButton,
-              _notificationButton,
-              _controlButton
-            ],
+            children: [_storiesButton, _notificationButton, _controlButton],
           ),
         )
       ],
     );
 
-    final _greetingHeader = Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 32,),
-          Text(
-            "hello, Prateek", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          SizedBox(height: 14,),
-          Text(
-            "here are today's", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
-          ),
-          SizedBox(height: 8,),
-          Text(
-            "recommended actions for you", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
-          ),
-          SizedBox(height: 12,),
-        ]
-    );
+    final _greetingHeader =
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      SizedBox(
+        height: 32,
+      ),
+      Text(
+        "hello, Prateek",
+        style: TextStyle(
+            fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+      ),
+      SizedBox(
+        height: 14,
+      ),
+      Text(
+        "here are today's",
+        style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
+      ),
+      SizedBox(
+        height: 8,
+      ),
+      Text(
+        "recommended actions for you",
+        style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
+      ),
+      SizedBox(
+        height: 12,
+      ),
+    ]);
 
     final _claimOnPressed = (int index) {
       controller.claimCoupon(index);
     };
 
     return Scaffold(
-      backgroundColor: HexColor.fromHex(DarkBackground),
-      appBar: _homeAppBar,
-      body: Container(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-        child: Obx(() =>
-            controller.isLoading.isTrue ?
-            Loader() :
-            ListView.builder(
-              itemCount: controller.homeAdvListData.value.length,
-              itemBuilder: (context, index) {
-                List<HomeAdvModel> list = controller.homeAdvListData.value;
-                if(index == 0) { return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                  _greetingHeader, HomeAdvCardModel(homeAdvModel: list[index], callback: _claimOnPressed)
-                ],); }
-                else { return HomeAdvCardModel(homeAdvModel: list[index], callback: _claimOnPressed); }
-              },
-            ),
+        backgroundColor: HexColor.fromHex(DarkBackground),
+        appBar: _homeAppBar,
+        body: Container(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+          child: Obx(
+            () => controller.isLoading.isTrue
+                ? Loader()
+                : ListView.builder(
+                    itemCount: controller.homeAdvListData.value.length,
+                    itemBuilder: (context, index) {
+                      List<HomeAdvModel> list =
+                          controller.homeAdvListData.value;
+                      if (index == 0) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _greetingHeader,
+                            HomeAdvCardModel(
+                                homeAdvModel: list[index],
+                                callback: _claimOnPressed)
+                          ],
+                        );
+                      } else {
+                        return HomeAdvCardModel(
+                            homeAdvModel: list[index],
+                            callback: _claimOnPressed);
+                      }
+                    },
+                  ),
           ),
-      )
-    );
+        ));
   }
 }
